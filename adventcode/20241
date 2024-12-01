@@ -1,0 +1,28 @@
+venstre = []
+hoyre = []
+
+with open('advent25/Dag1/data.txt', 'r') as f:
+    for line in f:
+        venstre.append(int(line.split('   ')[0]))
+        hoyre.append(int(line.split('   ')[1]))
+
+venstre.sort()
+hoyre.sort()
+
+total1 = 0
+
+# Del 1 : 
+
+for x in range(len(venstre)):
+    total1 += (abs(venstre[x] - hoyre[x]))
+
+print('Totalt 1:' + str(total1))
+
+# Del 2 : 
+
+total2 = 0 
+
+for y in range(len(venstre)):
+    total2 += (venstre[y] * hoyre.count(venstre[y]))
+
+print('total i del 2 : ' + str(total2))
