@@ -1,1 +1,35 @@
 
+
+with open('advent25/Dag2/data.txt', 'r') as f:
+    content = f.read().strip().split('\n')
+
+svar = 0
+
+def is_safe(verdi):
+    
+        # print (verdi)
+        tryggpos = set([1, 2, 3])
+        tryggneg = set([-1, -2, -3])
+        for x in range(1, len(verdi)):
+            tryggpos.add(verdi[x] - verdi[x - 1])
+            tryggneg.add(verdi[x] - verdi[x - 1])
+            # print (svar)
+        # print(tryggpos)
+
+        if len(tryggpos) == 3 or len(tryggneg) == 3:
+            return True
+            # print(svar)
+
+for report in content:
+    # print(svar)
+    
+    verdi = list(map(int, report.split()))
+
+    if is_safe(verdi):
+         svar += 1
+
+    
+        
+print (svar)
+
+#for å løse del 2, må an fjerne en av verdiene for å få den trygg
